@@ -12,7 +12,6 @@ struct Node {
     Node* prev;
 
     void killSelf(){
-    	next->killSelf();
     	delete this;
     }
     void print_next(); //ignorar 

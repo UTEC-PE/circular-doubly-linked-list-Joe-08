@@ -7,7 +7,7 @@
 
 using namespace std;
 
-/*#define MIN 100
+#define MIN 100
 #define MAX 500
 
 #define PUSH_FRONT 0
@@ -33,6 +33,7 @@ int main(int argc, char *argv[]) {
     }
 
     assert(test.size() == numberOfElements && "Something is wrong with the push methods");
+
 
     const int elementsToRemove = generateRandomInt(0, MIN - 1);
     for (int i = 0; i < elementsToRemove; i++) {
@@ -75,6 +76,7 @@ int main(int argc, char *argv[]) {
 
     system("read");
     return EXIT_SUCCESS;
+ 
 }
 
 int generateRandomInt(int min, int max) {
@@ -100,17 +102,4 @@ void removeFromList(List<int> &numbers) {
         case POP_FRONT: numbers.pop_front(); break;
         case POP_BACK: numbers.pop_back(); break;
     }
-} */
-int main()
-{
-    List<int> lista;
-    lista.push_back(1);
-    cout<< lista.back() << endl;
-    lista.push_back(2);
-    cout<< lista.back() << endl;
-    lista.push_back(3);
-    cout<< lista.back() << endl;
-    cout<< lista.size() << endl;
-    cout<< lista.empty() << endl;
-    return 0;
-}
+} 

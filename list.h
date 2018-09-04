@@ -60,16 +60,46 @@ class List {
             }
         }
         void pop_front(){
-
+            if (start == NULL){
+                throw "Lista vacia";
+            }
+            else{
+                Node<T> *temp = start;
+                start -> prev -> next = start -> next;
+                start -> next -> prev = start -> prev;
+                start = start -> next;
+                nodos--;
+                delete temp;
+            }
         }
         void pop_back(){
-
+            Node<T> *temp = start->prev;
+            if (nodos == 1){
+                start = NULL;
+                temp->killSelf();
+            }
+            else{
+                start->prev = temp->prev;
+                temp->killSelf();
+                nodos--;
+            }
         }
         T get(int position){
-
+            if (position >= nodos || position < 0){
+                throw "fuera de rango";
+            }else{
+                Node<T> *temp = start;
+                for (int i = 0; i < nodos; i++){
+                    if ( i == position){
+                        return temp->data;
+                    }
+                    temp = temp->next;
+                }
+            }
         }
         void concat(List<T> &other){
-            start->prev = other->start;
+            start->prev->next = other->start;
+            other.start->prev =start->prev;
         }
         bool empty(){
             return start == NULL;
@@ -78,13 +108,23 @@ class List {
             return nodos;
         }
         void clear(){
-            start->killSelf();
+            Node<T> *temp = start->next;
+            while(temp != start){
+                Node<T> *temp2 = temp;
+                temp = temp->next;
+                temp2->killSelf();
+            }
+            start = NULL;
+            delete temp;
+            nodos = 0;
         }
         Iterator<T> begin(){
-
+            Iterator<T> it(start);
+            return it; 
         }
         Iterator<T> end(){
-
+            Iterator<T> ite(start->prev);
+            return ite;
         }
 
         ~List(){};
