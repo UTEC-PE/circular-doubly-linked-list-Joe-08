@@ -119,10 +119,16 @@ class List {
             nodos = 0;
         }
         Iterator<T> begin(){
+            if(start == NULL){
+                throw "Lista vacia";
+            }
             Iterator<T> it(start);
             return it; 
         }
         Iterator<T> end(){
+            if(start == NULL){
+                throw "Lista vacia";
+            }
             Iterator<T> ite(start->prev);
             return ite;
         }
