@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 
     assert(test.size() == numberOfElements && "Something is wrong with the push methods");
 
+
     const int elementsToRemove = generateRandomInt(0, MIN - 1);
     for (int i = 0; i < elementsToRemove; i++) {
         removeFromList(test);
@@ -75,6 +76,7 @@ int main(int argc, char *argv[]) {
 
     system("read");
     return EXIT_SUCCESS;
+ 
 }
 
 int generateRandomInt(int min, int max) {
