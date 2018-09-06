@@ -26,7 +26,7 @@ class List {
             return start->data;
         }
         T back(){
-            return start->prev->data;
+            return start->prev->data; // Por qué te olvidaste de validar este caso, si validaste el front?
         }
         void push_front(T value){
             Node<T>* temp = new Node<T>;
@@ -79,7 +79,7 @@ class List {
                 temp->killSelf();
             }
             else{
-                start->prev = temp->prev;
+                start->prev = temp->prev; // Está incompleto
                 temp->killSelf();
                 nodos--;
             }
@@ -95,7 +95,7 @@ class List {
                     }
                     temp = temp->next;
                 }
-            }
+            }// Warning por no tener return 
         }
         void concat(List<T> &other){
             start->prev->next = other->start;
@@ -133,7 +133,7 @@ class List {
             return ite;
         }
 
-        ~List(){};
+        ~List(){}; // No implementó
 };
 
 #endif
